@@ -1,5 +1,7 @@
 ci: npm.install npm.lint tests.unit bundler.install up waitforprintit tests.integration
 
+deps: npm.install bundler.install
+
 npm.install:
 	@npm install
 

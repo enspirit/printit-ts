@@ -16,8 +16,7 @@
     "./node_modules/@types/node/index.d.ts",
   ],
   "include": [
-    "src/**/*.ts",
-    "examples/**/*.ts",
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
