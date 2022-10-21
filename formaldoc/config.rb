@@ -1,7 +1,4 @@
 require 'webspicy'
-require 'mini_magick'
-require 'zip'
-require 'tempfile'
 
 Webspicy::Configuration.new(Path.dir) do |c|
 
