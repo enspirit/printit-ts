@@ -1,0 +1,29 @@
+---
+name: |-
+  GET /health-check
+
+url: |-
+  /health-check
+
+services:
+- method: |-
+    GET
+
+  description: |-
+    Tests if the API is up and running
+
+  input_schema: |-
+    .
+
+  output_schema: |-
+    .
+
+  error_schema: |-
+    .
+
+  examples:
+
+    - description: |-
+        FOR: the component is running
+      expected:
+        status: 200

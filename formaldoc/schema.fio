@@ -1,0 +1,5 @@
+@import webspicy/scalars
+
+Error = {
+  error: String
+}

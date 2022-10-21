@@ -1,0 +1,11 @@
+.github
+formaldoc
+node_modules
+tmp
+volumes
+.dockerignore
+.gitignore
+*.md
+docker-compose.yaml
+Gemfile*
+Makefile
