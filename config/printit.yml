@@ -1,0 +1,5 @@
+handler: weasyprint
+weasyprint:
+  m: "print"
+  u: "http://localhost"
+  e: "utf-8"
