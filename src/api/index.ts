@@ -1,6 +1,7 @@
-import express from 'express';
+import express, { Request } from 'express';
 import defaultLogger from '../logger';
-import { Config } from '../types';
+import { Config, PrintInput } from '../types';
+import { Weasyprint } from '../lib/Weasyprint';
 import { ErrorLogger, RequestLogger } from './middlewares/loggers';
 
 export const createApp = (config: Config): express.Express => {
@@ -20,6 +21,27 @@ export const createApp = (config: Config): express.Express => {
   app.get('/health-check', (_req, res, _next) => {
     res.sendStatus(204);
     throw new Error();
+  });
+
+  app.use(express.urlencoded({ extended: true }));
+
+  app.post('/', async (req: Request, res, next) => {
+    try {
+      const accept = req.header('Accept') || 'application/pdf';
+      const input: PrintInput = req.body;
+      if (accept !== 'application/pdf') {
+        res.sendStatus(415);
+      } else {
+        res.setHeader('content-type', 'application/pdf');
+        if (input.attachment) {
+          res.setHeader('content-disposition', `attachment; filename="${req.body.attachment}"`);
+        }
+        res.status(200);
+        return Weasyprint(req, res)(req.body);
+      }
+    } catch (error: any) {
+      return next(error);
+    }
   });
 
   // Log errors
