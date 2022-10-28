@@ -23,6 +23,7 @@ export const createApp = (config: Config): express.Express => {
     throw new Error();
   });
 
+  app.use(express.static('public'));
   app.use(express.urlencoded({ extended: true }));
 
   app.post('/', async (req: Request, res, next) => {
