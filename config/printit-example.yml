@@ -1,0 +1,7 @@
+handler: prince # or weasyprint
+prince:
+  media:   "print"
+  baseurl: "http://localhost"
+weasyprint:
+  m: "print"
+  u: "http://localhost"
