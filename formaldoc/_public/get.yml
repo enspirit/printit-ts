@@ -1,0 +1,40 @@
+---
+name: |-
+  GET /{file}
+
+url: |-
+  /{file}
+
+services:
+- method: |-
+    GET
+
+  description: |-
+    Serves static files in public folder
+
+  input_schema: |-
+    { file: String }
+
+  output_schema: |-
+    .
+
+  error_schema: |-
+    .
+
+  examples:
+
+    - description: |-
+        it returns printit.css if it exists
+      params:
+        file: printit.css
+      expected:
+        status: 200
+        content_type: text/css; charset=UTF-8
+
+    - description: |-
+        it returns printit.js if it exists
+      params:
+        file: printit.js
+      expected:
+        status: 200
+        content_type: application/javascript; charset=UTF-8
