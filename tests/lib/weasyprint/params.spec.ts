@@ -9,6 +9,6 @@ describe('WeasyprintParams#toArgs', () => {
   const wsp = new WeasyprintParams({ m: 'print' });
 
   it('works', () => {
-    expect(wsp.toArgs()).to.eql(['-m print', '-', '-']);
+    expect(wsp.toArgs()).to.eql(['-m', 'print', '-', '-']);
   });
 });

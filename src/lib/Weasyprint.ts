@@ -10,10 +10,10 @@ export class WeasyprintParams {
     this.#config = config || {};
   }
 
-  toArgs() {
+  toArgs(): string[] {
     return Object
       .entries(this.#config)
-      .map((pair) => `-${pair[0]} ${pair[1]}`)
+      .reduce((memo: string[], pair) => memo.concat([`-${pair[0]}`, pair[1]]), [])
       .concat(['-', '-']);
   }
 }
