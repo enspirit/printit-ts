@@ -1,14 +1,31 @@
+import { Config, WeasyprintConfig } from '../types';
 import { Request, Response } from 'express';
 import { spawn } from 'child_process';
 import { PrintInput } from '../types';
 
-export function Weasyprint(req: Request, res: Response) {
+export class WeasyprintParams {
+  #config: object;
+
+  constructor(config ?: WeasyprintConfig) {
+    this.#config = config || {};
+  }
+
+  toArgs(): string[] {
+    return Object
+      .entries(this.#config)
+      .reduce((memo: string[], pair) => memo.concat([`-${pair[0]}`, pair[1]]), [])
+      .concat(['-', '-']);
+  }
+}
+
+export function Weasyprint(config: Config, req: Request, res: Response) {
+  const wpParams = new WeasyprintParams(config.weasyprint);
+  const command = 'weasyprint';
+  const args = wpParams.toArgs();
+
   return function(input: PrintInput) {
     return new Promise((resolve, reject) => {
-      const command = 'weasyprint';
-      const args = ['-', '-'];
       req.logger.info(`${command} ${args.join(' ')}`);
-
       const w = spawn(command, args);
 
       w.stdout.pipe(res);

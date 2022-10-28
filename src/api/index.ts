@@ -37,7 +37,7 @@ export const createApp = (config: Config): express.Express => {
           res.setHeader('content-disposition', `attachment; filename="${req.body.attachment}"`);
         }
         res.status(200);
-        return Weasyprint(req, res)(req.body);
+        return Weasyprint(config, req, res)(req.body);
       }
     } catch (error: any) {
       return next(error);
