@@ -28,17 +28,16 @@ export const createApp = (config: Config): express.Express => {
 
   app.post('/', async (req: Request, res, next) => {
     try {
-      const accept = req.header('Accept') || 'application/pdf';
       const input: PrintInput = req.body;
-      if (accept !== 'application/pdf') {
-        res.sendStatus(415);
-      } else {
+      if (req.accepts('application/pdf')) {
         res.setHeader('content-type', 'application/pdf');
         if (input.attachment) {
           res.setHeader('content-disposition', `attachment; filename="${req.body.attachment}"`);
         }
         res.status(200);
         return Weasyprint(config, req, res)(req.body);
+      } else {
+        res.sendStatus(415);
       }
     } catch (error: any) {
       return next(error);
