@@ -1,7 +1,8 @@
 import express, { Request } from 'express';
 import defaultLogger from '../logger';
 import { Config, PrintInput } from '../types';
-import { Weasyprint } from '../lib/Weasyprint';
+//import { Weasyprint } from '../lib/Weasyprint';
+import { Wkhtmltopdf } from '../lib/Wkhtmltopdf';
 import { ErrorLogger, RequestLogger } from './middlewares/loggers';
 
 export const createApp = (config: Config): express.Express => {
@@ -35,11 +36,12 @@ export const createApp = (config: Config): express.Express => {
           res.setHeader('content-disposition', `attachment; filename="${req.body.attachment}"`);
         }
         res.status(200);
-        return Weasyprint(config, req, res)(req.body);
+        return Wkhtmltopdf(config, req, res)(req.body);
       } else {
         res.sendStatus(415);
       }
     } catch (error: any) {
+      req.logger.error(error);
       return next(error);
     }
   });

@@ -1,4 +1,4 @@
-import { Config, WeasyprintConfig } from '../types';
+import { Config, CmdConfig } from '../types';
 import { Request, Response } from 'express';
 import { spawn } from 'child_process';
 import { PrintInput } from '../types';
@@ -6,7 +6,7 @@ import { PrintInput } from '../types';
 export class WeasyprintParams {
   #config: object;
 
-  constructor(config ?: WeasyprintConfig) {
+  constructor(config ?: CmdConfig) {
     this.#config = config || {};
   }
 

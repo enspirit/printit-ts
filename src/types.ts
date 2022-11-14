@@ -1,11 +1,12 @@
 import { Logger } from 'winston';
 
-export type WeasyprintConfig = any
+export type CmdConfig = any
 
 export type Config = {
   logger: Logger
   handler ?: String
-  weasyprint?: WeasyprintConfig
+  weasyprint?: CmdConfig
+  wkhtmltopdf?: CmdConfig
 }
 
 export type PrintInput = {
