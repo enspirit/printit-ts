@@ -24,6 +24,7 @@ export const createApp = (config: Config): express.Express => {
   });
 
   app.use(express.static('public'));
+  app.use(express.json({ }));
   app.use(express.urlencoded({ extended: true }));
 
   app.post('/', async (req: Request, res, next) => {
