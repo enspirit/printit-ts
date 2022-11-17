@@ -1,9 +1,9 @@
-## 2.0.3
+## 2.0.3 - 2022-11-17
 
 * Add tools and examples for using headers and footers with
   weasyprint.
 
-## 2.0.2
+## 2.0.2 - 2022-11-17
 
 * Allow `class` attribute on all tags during sanitization, since
   a stylesheet can be provided as commandline argument.
