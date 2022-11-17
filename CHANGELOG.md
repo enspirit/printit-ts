@@ -1,4 +1,4 @@
-## 2.0.1
+## 2.0.1 - 2022-11-17
 
 * Weasyprint input is always sanitized using sanitize-html
   to avoid security problems. There is no way to disable this
