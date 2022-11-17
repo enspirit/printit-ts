@@ -1,0 +1,80 @@
+.top-left-corner,
+.top-right-corner,
+.bottom-left-corner,
+.bottom-right-corner,
+.top-left,
+.top-center,
+.top-right,
+.bottom-left,
+.bottom-center,
+.bottom-right {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.top-left-corner {
+  string-set: top-left-corner content();
+}
+.top-left {
+  string-set: top-left content();
+}
+.top-center {
+  string-set: top-center content();
+}
+.top-right {
+  string-set: top-right content();
+}
+.top-right-corner {
+  string-set: top-right-corner content();
+}
+
+.bottom-left-corner {
+  string-set: bottom-left-corner content();
+}
+.bottom-left {
+  string-set: bottom-left content();
+}
+.bottom-center {
+  string-set: bottom-center content();
+}
+.bottom-right {
+  string-set: bottom-right content();
+}
+.bottom-right-corner {
+  string-set: bottom-right-corner content();
+}
+
+@page {
+  @top-left-corner {
+    content: string(top-left-corner, first);
+  }
+  @top-left {
+    content: string(top-left, first);
+  }
+  @top-center {
+    content: string(top-center, first);
+  }
+  @top-right {
+    content: string(top-right, first);
+  }
+  @top-right-corner {
+    content: string(top-right-corner, first);
+  }
+  @bottom-left-corner {
+    content: string(bottom-left-corner, first);
+  }
+  @bottom-left {
+    content: string(bottom-left, first);
+  }
+  @bottom-center {
+    content: string(bottom-center, first);
+  }
+  @bottom-right {
+    content: string(bottom-right, first);
+  }
+  @bottom-right-corner {
+    content: string(bottom-right-corner, first);
+  }
+}

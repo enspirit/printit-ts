@@ -75,3 +75,6 @@ weasyprint.image.tag.push: weasyprint.image.tag
 
 examples/sanitize/%.pdf: examples/sanitize/%.json
 	curl -XPOST -H"Content-Type: application/json" -d @$< http://127.0.0.1:3000/ > $@
+
+examples/layout/%.pdf: examples/layout/%.json
+	curl -XPOST -H"Content-Type: application/json" -d @$< http://127.0.0.1:3000/ > $@

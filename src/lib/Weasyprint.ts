@@ -14,8 +14,18 @@ export class WeasyprintParams {
   toArgs(): string[] {
     return Object
       .entries(this.#config)
-      .reduce((memo: string[], pair) => memo.concat([`-${pair[0]}`, pair[1]]), [])
+      .reduce((memo: string[], pair) => {
+        return memo.concat(this.pairToArgs(pair));
+      }, [])
       .concat(['-', '-']);
+  }
+
+  pairToArgs(pair: any) {
+    if (Array.isArray(pair[1])) {
+      return pair[1].reduce((memo, one) => memo.concat([`-${pair[0]}`, one]), []);
+    } else {
+      return [`-${pair[0]}`, pair[1]];
+    }
   }
 }
 

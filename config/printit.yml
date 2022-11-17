@@ -3,3 +3,7 @@ weasyprint:
   m: "print"
   u: "http://localhost"
   e: "utf-8"
+  s: [
+    "http://127.0.0.1:3000/printit.css",
+    "http://127.0.0.1:3000/headers-and-footers.css"
+  ]

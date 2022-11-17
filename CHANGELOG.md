@@ -1,3 +1,8 @@
+## 2.0.3
+
+* Add tools and examples for using headers and footers with
+  weasyprint.
+
 ## 2.0.2
 
 * Allow `class` attribute on all tags during sanitization, since
