@@ -4,13 +4,13 @@ export type WeasyprintConfig = any
 
 export type Config = {
   logger: Logger
-  handler ?: String
+  handler ?: string
   weasyprint?: WeasyprintConfig
 }
 
 export type PrintInput = {
-  html: String
-  attachment ?: String
+  html: string
+  attachment ?: string
 }
 
 declare global {
