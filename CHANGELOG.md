@@ -1,3 +1,8 @@
+## 2.0.2
+
+* Allow `class` attribute on all tags during sanitization, since
+  a stylesheet can be provided as commandline argument.
+
 ## 2.0.1 - 2022-11-17
 
 * Weasyprint input is always sanitized using sanitize-html
