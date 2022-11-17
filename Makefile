@@ -70,3 +70,8 @@ weasyprint.image.tag.push: weasyprint.image.tag
 	docker push ${DOCKER_REGISTRY}/$(IMG_NAME):weasyprint-$(TINY)
 	docker push ${DOCKER_REGISTRY}/$(IMG_NAME):weasyprint-$(MINOR)
 	docker push ${DOCKER_REGISTRY}/$(IMG_NAME):weasyprint-$(MAJOR)
+
+## Examples
+
+examples/sanitize/%.pdf: examples/sanitize/%.json
+	curl -XPOST -H"Content-Type: application/json" -d @$< http://127.0.0.1:3000/ > $@

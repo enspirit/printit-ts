@@ -2,6 +2,7 @@ import { Config, WeasyprintConfig } from '../types';
 import { Request, Response } from 'express';
 import { spawn } from 'child_process';
 import { PrintInput } from '../types';
+import sanitize from './sanitize';
 
 export class WeasyprintParams {
   #config: object;
@@ -42,7 +43,7 @@ export function Weasyprint(config: Config, req: Request, res: Response) {
         resolve(null);
       });
 
-      w.stdin.write(input.html);
+      w.stdin.write(sanitize(input.html));
       w.stdin.end();
     });
   };

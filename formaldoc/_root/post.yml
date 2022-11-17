@@ -29,8 +29,6 @@ services:
     - description: |-
         When requested with some html with a correct Accept request
         header, it returns a pdf file a plain response body
-      tags:
-      - ONLY
       headers:
         Content-Type: application/json
         Accept: application/pdf
