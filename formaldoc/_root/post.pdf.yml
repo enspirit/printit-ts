@@ -1,0 +1,39 @@
+---
+name: |-
+  Printit
+
+url: |-
+  /
+
+services:
+- method: |-
+    POST
+
+  description: |-
+    Base webservice to convert HTML to a .pdf
+
+  input_schema: |-
+    {
+      html       :  String
+      attachment :? String
+    }
+
+  output_schema: |-
+    .
+
+  error_schema: |-
+    .
+
+  examples:
+
+    - description: |-
+        When requested with some html with a correct Accept request
+        header, it returns a pdf file as response body
+      headers:
+        Content-Type: application/json
+        Accept: application/pdf
+      params:
+        html: <h1>Hello world</h1>
+      expected:
+        content_type: application/pdf
+        status: 200

@@ -1,3 +1,7 @@
+## 2.1.0 - 2023-06-08
+
+* Add support for html to docx conversion
+
 ## 2.0.3 - 2022-11-17
 
 * Add tools and examples for using headers and footers with

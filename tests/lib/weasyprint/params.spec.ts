@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinonChai from 'sinon-chai';
 chai.use(sinonChai);
 
-import { WeasyprintParams } from '../../../src/lib/Weasyprint';
+import { WeasyprintParams } from '../../../src/lib/handlers/Weasyprint';
 
 describe('WeasyprintParams#toArgs', () => {
 

@@ -28,6 +28,8 @@ const OPTIONS = {
   enforceHtmlBoundary: false,
 };
 
-export default function(html: string) {
-  return sanitizeHtml(html, OPTIONS);
-}
+export default {
+  sanitize(html: string) {
+    return sanitizeHtml(html, OPTIONS);
+  },
+};
