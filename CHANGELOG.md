@@ -1,3 +1,11 @@
+## 2.2.0 - 2026-10-23
+
+* Upgrade to Node 24 (now required), in the Docker image as well.
+* Upgrade dependencies, including Express 5. Static files are now
+  served with lowercase `charset=utf-8` and `.js` files as
+  `text/javascript`.
+* Tooling: TypeScript 6, ESLint 10 (flat config), mocha 12, chai 6.
+
 ## 2.1.0 - 2023-06-08
 
 * Add support for html to docx conversion
