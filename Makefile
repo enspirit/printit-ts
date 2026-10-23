@@ -17,19 +17,19 @@ waitforprintit:
 	@sleep 10
 
 up:
-	@docker-compose up -d --force-recreate --build
+	@docker compose up -d --force-recreate --build
 
 %.up:
-	@docker-compose up -d --force-recreate --build $*
+	@docker compose up -d --force-recreate --build $*
 
 down:
-	@docker-compose down
+	@docker compose down
 
 ps:
-	@docker-compose ps
+	@docker compose ps
 
 %.logs:
-	@docker-compose logs -f $*
+	@docker compose logs -f $*
 
 tests.unit:
 	@npm run test
