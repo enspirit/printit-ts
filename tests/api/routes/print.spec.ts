@@ -1,4 +1,5 @@
-import chai, { expect } from 'chai';
+import * as chai from 'chai';
+import { expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -6,12 +7,12 @@ import sinonChai from 'sinon-chai';
 import sanitizer from '../../../src/lib/sanitizer';
 import printRoute from '../../../src/api/routes/print';
 import { NextFunction, Request, Response } from 'express';
-import { Config, Converter, Handler } from '../../../src/types';
+import { Config, Handler } from '../../../src/types';
 
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
-describe.only('the print api route handler', () => {
+describe('the print api route handler', () => {
 
   let fakeHandler: Handler;
   let config: Partial<Config>;

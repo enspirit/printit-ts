@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export type WeasyprintConfig = any
+export type WeasyprintConfig = any;
 
 export type Config = {
   logger: Logger
@@ -19,21 +19,21 @@ export type Config = {
   handler ?: string
   weasyprint?: WeasyprintConfig
   html2docx?: HTMLDocumentOptions
-}
+};
 
 export type PrintInput = {
   html: string
   attachment ?: string
-}
+};
 
-export type Converter = (input: PrintInput) => Promise<void>
+export type Converter = (input: PrintInput) => Promise<void>;
 
 export type Handler = {
   accepts(req: Request): Boolean,
   getConverter(config: Config, req: Request, res: Response): Converter
-}
+};
 
 export enum ContentType {
   docx = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-  pdf = 'application/pdf'
+  pdf = 'application/pdf',
 }
