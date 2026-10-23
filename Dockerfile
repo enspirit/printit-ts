@@ -1,4 +1,4 @@
-FROM node:16-alpine as builder
+FROM node:24-alpine AS builder
 
 ARG handler=weasyprint
 
@@ -19,7 +19,7 @@ RUN apk add \
   fc-cache -f \
 && \
   fc-list | sort
-RUN pip install weasyprint && weasyprint --info
+RUN pip install --break-system-packages weasyprint && weasyprint --info
 
 WORKDIR /home/app
 
@@ -30,4 +30,4 @@ COPY ./ ./
 
 RUN npm run build
 
-CMD npm start
+CMD ["npm", "start"]
