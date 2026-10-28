@@ -21,7 +21,11 @@ const OPTIONS = {
     // of contents comes out dead. It carries no script and no navigation of
     // its own — DOM clobbering is a browser concern, and this HTML only ever
     // reaches a document converter.
-    '*': ['class', 'id'],
+    // `dir` is what decides which way a paragraph runs. A renderer that
+    // marks its output `dir="auto"` had the mark stripped here and Arabic or
+    // Hebrew came out laid out as if it were English. `bdo` is already an
+    // allowed tag and means nothing at all without it.
+    '*': ['class', 'id', 'dir'],
   },
   // Lots of these won't come up by default because we don't allow them
   selfClosing: ['img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'],

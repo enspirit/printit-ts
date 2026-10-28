@@ -23,6 +23,11 @@ describe('sanitizer', () => {
       expect(got).to.eql('<h1 id="a-section">Hello</h1><a href="#a-section">go</a>');
     });
 
+    it('keeps the direction a text declares', () => {
+      const got = sanitizer.sanitize('<p dir="auto">Hello</p><bdo dir="rtl">Hello</bdo>');
+      expect(got).to.eql('<p dir="auto">Hello</p><bdo dir="rtl">Hello</bdo>');
+    });
+
     it('disallow style attributes', () => {
       const got = sanitizer.sanitize('<p style="font-size: 12px">Hello</p>');
       expect(got).to.eql('<p>Hello</p>');
