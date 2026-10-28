@@ -1,3 +1,12 @@
+## 2.2.1 - 2026-10-28
+
+* Allow `id` and `dir` attributes on all tags during sanitization.
+  Stripping `id` left a document's own `#section` links pointing at
+  nothing, so anything carrying a table of contents came out with every
+  entry dead. Stripping `dir` dropped the `dir="auto"` a renderer marks
+  its output with, so right-to-left text was laid out as if it were
+  English — and `bdo`, an allowed tag, means nothing without it.
+
 ## 2.2.0 - 2026-10-23
 
 * Upgrade to Node 24 (now required), in the Docker image as well.
