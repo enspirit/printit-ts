@@ -16,7 +16,12 @@ const OPTIONS = {
     // We don't currently allow img itself by default, but
     // these attributes would make sense if we did.
     img: ['src', 'srcset', 'alt', 'title', 'width', 'height', 'loading'],
-    '*': ['class'],
+    // `id` is what makes a document's own `#section` links resolve: strip it
+    // and the converter has nothing to point an internal link at, so a table
+    // of contents comes out dead. It carries no script and no navigation of
+    // its own — DOM clobbering is a browser concern, and this HTML only ever
+    // reaches a document converter.
+    '*': ['class', 'id'],
   },
   // Lots of these won't come up by default because we don't allow them
   selfClosing: ['img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'],

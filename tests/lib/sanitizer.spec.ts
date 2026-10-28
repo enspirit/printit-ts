@@ -18,6 +18,11 @@ describe('sanitizer', () => {
       expect(got).to.eql('<img src="https://klaro.cards/logo.png" />');
     });
 
+    it('keeps the ids a document links to', () => {
+      const got = sanitizer.sanitize('<h1 id="a-section">Hello</h1><a href="#a-section">go</a>');
+      expect(got).to.eql('<h1 id="a-section">Hello</h1><a href="#a-section">go</a>');
+    });
+
     it('disallow style attributes', () => {
       const got = sanitizer.sanitize('<p style="font-size: 12px">Hello</p>');
       expect(got).to.eql('<p>Hello</p>');
